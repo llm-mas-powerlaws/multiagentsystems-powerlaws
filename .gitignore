@@ -1,5 +1,5 @@
 
 # large trace/data outputs
-data/claim-traces/
-*.jsonl
 *.csv
+data/claim-traces/combined/extracted/
+data/claim-traces/**/snapshots.jsonl

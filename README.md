@@ -7,7 +7,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 ![Status: Active Development](https://img.shields.io/badge/status-active%20development-orange)
 
-> **⚠️ This repository is under active development.** Code and data are being cleaned up and pushed continuously. Not everything is in its final state yet. We are working toward a complete, reproducible release alongside the paper.
+> **⚠️ This repository is under active development.** Code and data are being made available continuously. Not everything is in its final state yet. We are working toward a modular, reproducible release soon.
 
 ---
 

@@ -1,0 +1,77 @@
+{
+  "benchmark": "gaia",
+  "domain": "reasoning",
+  "N": 6,
+  "K": 1,
+  "M": 2,
+  "pool_size": 3,
+  "total_nodes": 4,
+  "nodes": [
+    {
+      "node_id": "reasoning_factory",
+      "node_type": "seed",
+      "description": "A factory runs three shifts. Morning shift: 240 widgets in 8 hours. Afternoon shift: 180 widgets in 6 hours. Night shift: 200 widgets in 10 hours. Which shift has the highest productivity per hour? What is the total daily output? If the factory needs 650 widgets per day, is it meeting its target? Show your reasoning step by step.",
+      "seed_parent_id": null,
+      "depends_on": [
+        "reasoning_factory_exp_e1",
+        "reasoning_factory_exp_e2"
+      ],
+      "agent_budget": 1,
+      "ground_truth": "morning=30/hr, total=620, below target",
+      "benchmark_source": "gaia"
+    },
+    {
+      "node_id": "reasoning_factory_exp_e1",
+      "node_type": "expanded",
+      "description": "Synthetic sub-problem 1.1: derived from 'A factory runs three shifts. Morning shift: 240 widgets in 8...'",
+      "seed_parent_id": "reasoning_factory",
+      "depends_on": [],
+      "agent_budget": 1,
+      "ground_truth": null,
+      "benchmark_source": "gaia"
+    },
+    {
+      "node_id": "reasoning_factory_exp_e2",
+      "node_type": "expanded",
+      "description": "Synthetic sub-problem 1.2: derived from 'A factory runs three shifts. Morning shift: 240 widgets in 8...'",
+      "seed_parent_id": "reasoning_factory",
+      "depends_on": [
+        "reasoning_factory_exp_e1"
+      ],
+      "agent_budget": 2,
+      "ground_truth": null,
+      "benchmark_source": "gaia"
+    },
+    {
+      "node_id": "root_000",
+      "node_type": "root",
+      "description": "Synthesise and reconcile the solutions from all 1 gaia reasoning tasks into a single, complete, coherent answer.",
+      "seed_parent_id": null,
+      "depends_on": [
+        "reasoning_factory"
+      ],
+      "agent_budget": 2,
+      "ground_truth": null,
+      "benchmark_source": null
+    }
+  ],
+  "dependency_dag": {
+    "reasoning_factory": [
+      "root_000"
+    ],
+    "reasoning_factory_exp_e1": [
+      "reasoning_factory_exp_e2",
+      "reasoning_factory"
+    ],
+    "reasoning_factory_exp_e2": [
+      "reasoning_factory"
+    ],
+    "root_000": []
+  },
+  "agent_allocation": {
+    "reasoning_factory": 1,
+    "reasoning_factory_exp_e1": 1,
+    "reasoning_factory_exp_e2": 2,
+    "root_000": 2
+  }
+}
